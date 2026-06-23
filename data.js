@@ -1,16 +1,5 @@
 window.REPOS = [
   {
-    "name": "eeruwang.github.io",
-    "description": null,
-    "date": "2026-06-23",
-    "stars": 0,
-    "commits": 5,
-    "lang": "JavaScript",
-    "private": false,
-    "url": "https://github.com/eeruwang/eeruwang.github.io",
-    "live": "https://eeruwang.github.io"
-  },
-  {
     "name": "readingunion",
     "description": null,
     "date": "2026-06-14",
@@ -66,17 +55,6 @@ window.REPOS = [
     "live": "https://whoiseeruwang.vercel.app"
   },
   {
-    "name": "namecard",
-    "description": null,
-    "date": "2026-05-06",
-    "stars": 0,
-    "commits": 21,
-    "lang": "CSS",
-    "private": true,
-    "url": null,
-    "live": "https://namecard-steel.vercel.app"
-  },
-  {
     "name": "ghostsky",
     "description": null,
     "date": "2026-03-29",
@@ -108,28 +86,6 @@ window.REPOS = [
     "private": true,
     "url": null,
     "live": "https://directus-diary.vercel.app"
-  },
-  {
-    "name": "portoflio",
-    "description": null,
-    "date": "2026-02-19",
-    "stars": 0,
-    "commits": 157,
-    "lang": "TypeScript",
-    "private": true,
-    "url": null,
-    "live": "https://portoflio-cms.vercel.app"
-  },
-  {
-    "name": "themould",
-    "description": null,
-    "date": "2026-02-17",
-    "stars": 0,
-    "commits": 10,
-    "lang": "Python",
-    "private": true,
-    "url": null,
-    "live": null
   },
   {
     "name": "ghostship",
