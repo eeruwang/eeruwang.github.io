@@ -4,10 +4,143 @@ window.REPOS = [
     "description": null,
     "date": "2026-06-23",
     "stars": 0,
-    "commits": 1,
-    "lang": "JavaScript",
+    "commits": 4,
+    "lang": "CSS",
+    "private": false,
     "url": "https://github.com/eeruwang/eeruwang.github.io",
     "live": "https://eeruwang.github.io"
+  },
+  {
+    "name": "readingunion",
+    "description": null,
+    "date": "2026-06-14",
+    "stars": 0,
+    "commits": 125,
+    "lang": "HTML",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
+    "name": "google-website-builder",
+    "description": null,
+    "date": "2026-06-08",
+    "stars": 0,
+    "commits": 86,
+    "lang": "TypeScript",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
+    "name": "atmoment",
+    "description": null,
+    "date": "2026-05-19",
+    "stars": 0,
+    "commits": 11,
+    "lang": "JavaScript",
+    "private": true,
+    "url": null,
+    "live": "https://atmoment.eeruwang.me"
+  },
+  {
+    "name": "eeruwangreading",
+    "description": null,
+    "date": "2026-05-16",
+    "stars": 0,
+    "commits": 28,
+    "lang": "TypeScript",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
+    "name": "whoiseeruwang",
+    "description": null,
+    "date": "2026-05-09",
+    "stars": 0,
+    "commits": 61,
+    "lang": "TypeScript",
+    "private": true,
+    "url": null,
+    "live": "https://whoiseeruwang.vercel.app"
+  },
+  {
+    "name": "namecard",
+    "description": null,
+    "date": "2026-05-06",
+    "stars": 0,
+    "commits": 21,
+    "lang": "CSS",
+    "private": true,
+    "url": null,
+    "live": "https://namecard-steel.vercel.app"
+  },
+  {
+    "name": "ghostsky",
+    "description": null,
+    "date": "2026-03-29",
+    "stars": 0,
+    "commits": 97,
+    "lang": "TypeScript",
+    "private": true,
+    "url": null,
+    "live": "https://ghostsky.vercel.app"
+  },
+  {
+    "name": "Film-Review",
+    "description": null,
+    "date": "2026-03-06",
+    "stars": 0,
+    "commits": 294,
+    "lang": "TypeScript",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
+    "name": "directus-diary",
+    "description": null,
+    "date": "2026-03-03",
+    "stars": 0,
+    "commits": 28,
+    "lang": "JavaScript",
+    "private": true,
+    "url": null,
+    "live": "https://directus-diary.vercel.app"
+  },
+  {
+    "name": "portoflio",
+    "description": null,
+    "date": "2026-02-19",
+    "stars": 0,
+    "commits": 157,
+    "lang": "TypeScript",
+    "private": true,
+    "url": null,
+    "live": "https://portoflio-cms.vercel.app"
+  },
+  {
+    "name": "themould",
+    "description": null,
+    "date": "2026-02-17",
+    "stars": 0,
+    "commits": 10,
+    "lang": "Python",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
+    "name": "ghostship",
+    "description": null,
+    "date": "2026-02-11",
+    "stars": 0,
+    "commits": 148,
+    "lang": "JavaScript",
+    "private": true,
+    "url": null,
+    "live": null
   },
   {
     "name": "starship",
@@ -16,6 +149,7 @@ window.REPOS = [
     "stars": 1,
     "commits": 265,
     "lang": "JavaScript",
+    "private": false,
     "url": "https://github.com/eeruwang/starship",
     "live": "https://starship.eeruwang.me"
   },
@@ -26,6 +160,7 @@ window.REPOS = [
     "stars": 0,
     "commits": 20,
     "lang": "Astro",
+    "private": false,
     "url": "https://github.com/eeruwang/byongari-doc",
     "live": "https://notice.byongari.com"
   },
@@ -36,8 +171,108 @@ window.REPOS = [
     "stars": 0,
     "commits": 217,
     "lang": "TypeScript",
+    "private": false,
     "url": "https://github.com/eeruwang/Simple_eeruwang_blog",
     "live": "https://simple-eeruwang-blog.vercel.app"
+  },
+  {
+    "name": "diary",
+    "description": null,
+    "date": "2025-03-11",
+    "stars": 0,
+    "commits": 60,
+    "lang": "TeX",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
+    "name": "eeruwang",
+    "description": null,
+    "date": "2024-03-02",
+    "stars": 1,
+    "commits": 93,
+    "lang": "MDX",
+    "private": true,
+    "url": null,
+    "live": "https://eeruwang.me"
+  },
+  {
+    "name": "film-diary",
+    "description": null,
+    "date": "2024-02-23",
+    "stars": 0,
+    "commits": 3,
+    "lang": "TypeScript",
+    "private": true,
+    "url": null,
+    "live": "https://film-diary-tawny.vercel.app"
+  },
+  {
+    "name": "writings",
+    "description": null,
+    "date": "2024-02-10",
+    "stars": 0,
+    "commits": 69,
+    "lang": "MDX",
+    "private": true,
+    "url": null,
+    "live": "https://writings-vert.vercel.app"
+  },
+  {
+    "name": "dailiness",
+    "description": null,
+    "date": "2024-02-07",
+    "stars": 0,
+    "commits": 22,
+    "lang": "TypeScript",
+    "private": true,
+    "url": null,
+    "live": "https://dailiness.vercel.app"
+  },
+  {
+    "name": "obsidian-backup",
+    "description": null,
+    "date": "2023-03-08",
+    "stars": 0,
+    "commits": 9,
+    "lang": "JavaScript",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
+    "name": "archive",
+    "description": null,
+    "date": "2023-02-25",
+    "stars": 0,
+    "commits": 2083,
+    "lang": "Astro",
+    "private": true,
+    "url": null,
+    "live": "https://a.eeruwang.me"
+  },
+  {
+    "name": "ilsunmooncom",
+    "description": null,
+    "date": "2023-01-14",
+    "stars": 0,
+    "commits": 128,
+    "lang": "JavaScript",
+    "private": true,
+    "url": null,
+    "live": "https://eeruwang-home.vercel.app"
+  },
+  {
+    "name": "eeruwang-doc",
+    "description": null,
+    "date": "2023-01-01",
+    "stars": 1,
+    "commits": 117,
+    "lang": "TypeScript",
+    "private": true,
+    "url": null,
+    "live": "eeruwang-doc.vercel.app"
   }
 ]
 ;
