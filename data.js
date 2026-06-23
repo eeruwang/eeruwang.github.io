@@ -4,8 +4,8 @@ window.REPOS = [
     "description": null,
     "date": "2026-06-23",
     "stars": 0,
-    "commits": 4,
-    "lang": "CSS",
+    "commits": 5,
+    "lang": "JavaScript",
     "private": false,
     "url": "https://github.com/eeruwang/eeruwang.github.io",
     "live": "https://eeruwang.github.io"
@@ -251,17 +251,6 @@ window.REPOS = [
     "private": true,
     "url": null,
     "live": "https://a.eeruwang.me"
-  },
-  {
-    "name": "ilsunmooncom",
-    "description": null,
-    "date": "2023-01-14",
-    "stars": 0,
-    "commits": 128,
-    "lang": "JavaScript",
-    "private": true,
-    "url": null,
-    "live": "https://eeruwang-home.vercel.app"
   },
   {
     "name": "eeruwang-doc",
