@@ -1,0 +1,38 @@
+name: build data.js
+
+# 하루 한 번 깨어나 공개 저장소를 훑고, 바뀐 게 있으면 data.js 를 새로 구워 커밋한다.
+# 손으로 즉시 돌리고 싶으면 Actions 탭에서 Run workflow 를 눌러도 된다.
+on:
+  schedule:
+    - cron: '0 6 * * *'   # 매일 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write          # data.js 를 되커밋하기 위해 필요
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Regenerate data.js
+        env:
+          GH_TOKEN: ${{ github.token }}   # gh 가 이 토큰으로 공개 데이터를 읽는다
+        run: |
+          # USER 를 이 저장소 주인으로 자동 지정 (예: eeruwang/eeruwang.github.io -> eeruwang)
+          OWNER="${GITHUB_REPOSITORY%%/*}"
+          bash generate.sh "$OWNER"
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- data.js; then
+            echo "data.js 변동 없음. 커밋 생략."
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data.js
+            git commit -m "chore: refresh data.js from GitHub"
+            git push
+          fi

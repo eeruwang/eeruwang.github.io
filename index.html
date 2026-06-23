@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eeruwang — 직접 짓고 돌보는 것들의 색인</title>
+  <meta name="description" content="페디버스 서버부터 작은 워커들까지, 손수 짓고 돌본 인프라와 코드의 역연대기 색인.">
+
+  <!-- meta:og -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="eeruwang — 직접 짓고 돌보는 것들의 색인">
+  <meta property="og:description" content="페디버스 서버부터 작은 워커들까지, 손수 짓고 돌본 인프라와 코드의 역연대기 색인.">
+  <meta name="twitter:card" content="summary">
+
+  <!-- Set the theme before first paint so there's no flash of the wrong colors. -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%23211f1a'/%3E%3Crect%20x='6'%20y='6'%20width='20'%20height='20'%20fill='%23e2542f'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#timeline">Skip to work</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="topbar">
+      <span class="mark">◆&nbsp;&nbsp;selected work — an index</span>
+      <nav class="topnav">
+        <a class="gh-link" href="https://github.com/eeruwang" rel="noopener" target="_blank">github&nbsp;↗</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+          <span class="tt-dot" aria-hidden="true"></span>
+          <span class="tt-label">dark</span>
+        </button>
+      </nav>
+    </div>
+
+    <div class="hero">
+      <!-- EDIT: your name -->
+      <h1 class="name">이루왕
+eeruwang</h1>
+      <!-- EDIT: 한 줄 태그라인 -->
+      <p class="tagline">학기와 학기 사이, 작은 서버들을 짓고<br>부서지지 않게 돌본다.</p>
+    </div>
+
+    <!-- Summary stats are computed from the data in app.js. -->
+    <div class="stat-strip" id="stats" aria-label="Summary"></div>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-seq">
+          <span>Newest first</span><b>✦</b><span>Scroll back in time ↓</span><b>✦</b><span>2025 → 2026</span><b>✦</b><span>Selected work</span><b>✦</b>
+        </span>
+        <span class="marquee-seq">
+          <span>Newest first</span><b>✦</b><span>Scroll back in time ↓</span><b>✦</b><span>2025 → 2026</span><b>✦</b><span>Selected work</span><b>✦</b>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="timeline" id="timeline"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="foot-lead" style="font-size: 15px; width: 515px">Hand-coded in plain HTML, CSS &amp; JavaScript.<br>No framework, no bundler, no build step.</p>
+    <a class="foot-src" href="https://github.com/eeruwang/eeruwang.github.io" rel="noopener" target="_blank">View source&nbsp;↗</a>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
