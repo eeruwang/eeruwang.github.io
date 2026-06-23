@@ -20,6 +20,7 @@ jobs:
       - name: Regenerate data.js
         env:
           GH_TOKEN: ${{ github.token }}   # gh 가 이 토큰으로 공개 데이터를 읽는다
+          EXCLUDE: ${{ secrets.PORTFOLIO_EXCLUDE }}   # 코드에 안 남기고 숨길 저장소 (쉼표/공백 구분)
         run: |
           # USER 를 이 저장소 주인으로 자동 지정 (예: eeruwang/eeruwang.github.io -> eeruwang)
           OWNER="${GITHUB_REPOSITORY%%/*}"

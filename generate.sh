@@ -17,6 +17,11 @@ set -euo pipefail
 USER="${1:-eeruwang}"     # ← 본인 GitHub 핸들
 MINCOMMITS=2                  # 이보다 커밋이 적은 사소한 저장소는 버림
 
+# 포트폴리오에서 숨길 저장소. 이름을 코드에 남기지 않으려고 런타임 환경변수로만 받는다.
+# 워크플로가 저장소 시크릿(PORTFOLIO_EXCLUDE)을 EXCLUDE 로 넘긴다.
+# 로컬에서 돌릴 땐 EXCLUDE="repo-a repo-b" ./generate.sh <핸들> 처럼 쓰면 된다.
+EXCLUDE_RAW="${EXCLUDE:-}"
+
 # 직접 만든 조직 저장소 (owner/name). 없으면 비워두세요.
 INCLUDE=(
   # "428lab/some-repo"
@@ -85,7 +90,17 @@ for full in ${INCLUDE[@]+"${INCLUDE[@]}"}; do
 done
 if [ -f /tmp/_org_lines.json ]; then jq -s '.' /tmp/_org_lines.json > /tmp/_org.json; else echo '[]' > /tmp/_org.json; fi
 
-jq -s --argjson ov "$OVERRIDES" '(.[0] + .[1])
+# 숨길 목록을 JSON 배열로 만든다 (쉼표/공백 모두 허용, 비어 있으면 []).
+# 이름은 코드에도, 로그에도 남기지 않는다 — 개수만 찍는다.
+EXCLUDE_JSON=$(printf '%s\n' ${EXCLUDE_RAW//,/ } | jq -R . | jq -s 'map(select(length>0))')
+echo "Hiding $(echo "$EXCLUDE_JSON" | jq 'length') repo(s) from the portfolio."
+
+jq -s --argjson ov "$OVERRIDES" --argjson ex "$EXCLUDE_JSON" '
+    ($ex | map(ascii_downcase)) as $exl
+    | (.[0] + .[1])
+    | map(select(
+        ([(.name|ascii_downcase), (.name|split("/")|last|ascii_downcase)]
+          | any(. as $n | $exl | index($n))) | not))
     | map(. as $r | ($ov[$r.name] // {}) as $o
           | $r + {
               description: (if ($o.description // "") != "" then $o.description else $r.description end),
