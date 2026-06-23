@@ -19,7 +19,9 @@ jobs:
 
       - name: Regenerate data.js
         env:
-          GH_TOKEN: ${{ github.token }}   # gh 가 이 토큰으로 공개 데이터를 읽는다
+          # 비공개 저장소까지 끌어오려면 repo 스코프 PAT 를 REPOS_TOKEN 시크릿에 넣는다.
+          # 없으면 기본 토큰으로 공개 저장소만 읽는다 (graceful fallback).
+          GH_TOKEN: ${{ secrets.REPOS_TOKEN || github.token }}
           EXCLUDE: ${{ secrets.PORTFOLIO_EXCLUDE }}   # 코드에 안 남기고 숨길 저장소 (쉼표/공백 구분)
         run: |
           # USER 를 이 저장소 주인으로 자동 지정 (예: eeruwang/eeruwang.github.io -> eeruwang)

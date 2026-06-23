@@ -1,15 +1,19 @@
 #!/usr/bin/env bash
 #
-# generate.sh — GitHub에서 공개 저장소를 긁어 data.js 를 새로 굽는다.
+# generate.sh — GitHub에서 본인 저장소를 긁어 data.js 를 새로 굽는다.
 #
-#   - 본인 소유의, 포크가 아닌 공개 저장소를 가져온다.
+#   - 본인 소유의, 포크가 아닌 저장소를 가져온다 (토큰 권한이 닿는 만큼 비공개도 포함).
 #   - 별/데모/설명이 있거나 커밋이 일정 수 이상인 것만 남겨, 빈 껍데기는 버린다.
+#     비공개 저장소는 이 컷을 건너뛰고 커밋만 충분하면 함께 싣는다.
+#   - 비공개 저장소는 url 을 비워, 공개 페이지에 깃헙(소스) 링크를 노출하지 않는다.
+#     대표 링크(homepage)는 그대로 싣는다.
 #   - INCLUDE 에 적은 조직 저장소를 따로 더한다.
 #   - OVERRIDES 로 설명이나 데모 주소를 손수 덧씌운다 (저장소 설정은 건드리지 않음).
 #
 # 필요한 것: gh (로그인된 상태), jq.
 #   로컬에서 돌릴 땐 한 번 `gh auth login` 해두면 됩니다.
-#   GitHub Actions 안에서는 토큰이 자동으로 주어져 그대로 돌아갑니다.
+#   GitHub Actions 안에서는 토큰이 자동으로 주어집니다. 비공개까지 끌어오려면
+#   repo 스코프 PAT 를 저장소 시크릿(REPOS_TOKEN)에 넣어야 합니다 (없으면 공개만).
 #
 set -euo pipefail
 
@@ -36,14 +40,14 @@ OVERRIDES='{
 }'
 # ─────────────────────────────────────────────────────────────────────
 
-echo "Fetching public repos for $USER ..."
+echo "Fetching repos for $USER ..."
 gh api graphql -f query='
 query($cursor: String, $login: String!) {
   user(login: $login) {
-    repositories(first: 100, after: $cursor, privacy: PUBLIC, ownerAffiliations: OWNER, isFork: false, orderBy: {field: CREATED_AT, direction: DESC}) {
+    repositories(first: 100, after: $cursor, ownerAffiliations: OWNER, isFork: false, orderBy: {field: CREATED_AT, direction: DESC}) {
       pageInfo { hasNextPage endCursor }
       nodes {
-        name description createdAt stargazerCount url homepageUrl isArchived
+        name description createdAt stargazerCount url homepageUrl isArchived isPrivate
         primaryLanguage { name }
         defaultBranchRef { target { ... on Commit { history { totalCount } } } }
       }
@@ -57,10 +61,11 @@ query($cursor: String, $login: String!) {
         stars: .stargazerCount,
         commits: (.defaultBranchRef.target.history.totalCount // 0),
         lang: (.primaryLanguage.name // null),
-        url,
+        private: (.isPrivate // false),
+        url: (if .isPrivate then null else .url end),
         live: (if (.homepageUrl // "") != "" then .homepageUrl else null end)
       })
-    | map(select(.stars>0 or .live!=null or (.description // "")!="" or .commits>=15))
+    | map(select(.private or .stars>0 or .live!=null or (.description // "")!="" or .commits>=15))
     | map(select(.commits > $min or .live != null))' \
 > /tmp/_own.json
 echo "  own (commits>$MINCOMMITS): $(jq length /tmp/_own.json)"
@@ -84,6 +89,7 @@ for full in ${INCLUDE[@]+"${INCLUDE[@]}"}; do
         stars: .stargazerCount,
         commits: (.defaultBranchRef.target.history.totalCount // 0),
         lang: (.primaryLanguage.name // null),
+        private: false,
         url,
         live: (if (.homepageUrl // "") != "" then .homepageUrl else null end)
       }' >> /tmp/_org_lines.json

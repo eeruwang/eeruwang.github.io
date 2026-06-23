@@ -21,9 +21,12 @@
 - .nojekyll   Pages의 Jekyll 처리를 끈다
 
 ## 데이터 모델 (카드 하나 = 객체 하나)
-name, description, date(YYYY-MM-DD), stars, commits, lang, url, live
+name, description, date(YYYY-MM-DD), stars, commits, lang, private, url, live
 - name 이 "owner/repo" 꼴이면 슬래시 앞이 작은 조직 배지로 나온다
 - stars 는 0이면 숨고, commits 는 항상 보이며, live 는 null이면 숨는다
+- private 이 true 면 generate.sh 가 url 을 null 로 비운다. 그러면 app.js 가
+  제목을 링크 대신 일반 텍스트로 그려, 비공개 깃헙 주소를 노출하지 않는다.
+  대표 링크(live)는 그대로 보인다. 비공개를 끌어오려면 REPOS_TOKEN PAT 필요
 - 배열은 최신이 위. 뷰는 정렬하지 않는다
 
 ## 카피 규칙

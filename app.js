@@ -111,17 +111,23 @@
       title = title.slice(slash + 1);
     }
 
-    /* title line: optional org badge + linked title with a trailing arrow */
+    /* title line: optional org badge + title. Public repos link to their
+       GitHub page; private repos (no url) show the title as plain text so the
+       inaccessible source link is never exposed — the Live link still shows. */
     var titleLine = [];
     if (org) titleLine.push(h('span', { class: 'org', text: org }));
-    titleLine.push(
-      h('a', {
-        class: 'row-title',
-        href: repo.url || '#',
-        rel: 'noopener',
-        target: '_blank'
-      }, [title, h('span', { class: 'arr', 'aria-hidden': 'true' }, '↗')])
-    );
+    if (repo.url) {
+      titleLine.push(
+        h('a', {
+          class: 'row-title',
+          href: repo.url,
+          rel: 'noopener',
+          target: '_blank'
+        }, [title, h('span', { class: 'arr', 'aria-hidden': 'true' }, '↗')])
+      );
+    } else {
+      titleLine.push(h('span', { class: 'row-title row-title-static', text: title }));
+    }
 
     var headline = [h('div', { class: 'row-title-line' }, titleLine)];
 

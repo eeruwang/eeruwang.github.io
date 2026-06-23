@@ -399,6 +399,10 @@ main {
 }
 .row:hover .row-title .arr { transform: translate(0, 0); opacity: 1; }
 
+/* private repos: title is plain text, not a link */
+.row-title-static { cursor: default; }
+.row:hover .row-title-static { color: var(--fg); }
+
 .row-desc {
   margin-top: 14px;
   margin-left: 44px;
