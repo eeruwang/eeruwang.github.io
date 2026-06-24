@@ -1,5 +1,27 @@
 window.REPOS = [
   {
+    "name": "ghost-themes",
+    "description": null,
+    "date": "2026-06-24",
+    "stars": 0,
+    "commits": 4,
+    "lang": "Handlebars",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
+    "name": "everyday-digest",
+    "description": null,
+    "date": "2026-06-23",
+    "stars": 0,
+    "commits": 8,
+    "lang": "HTML",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
     "name": "readingunion",
     "description": null,
     "date": "2026-06-14",
