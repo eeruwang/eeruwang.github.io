@@ -4,8 +4,8 @@ window.REPOS = [
     "description": null,
     "date": "2026-06-24",
     "stars": 0,
-    "commits": 60,
-    "lang": "Handlebars",
+    "commits": 102,
+    "lang": "CSS",
     "private": true,
     "url": null,
     "live": null
