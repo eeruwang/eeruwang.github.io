@@ -1,5 +1,16 @@
 window.REPOS = [
   {
+    "name": "Everyeightyseconds_gallery",
+    "description": null,
+    "date": "2026-07-11",
+    "stars": 0,
+    "commits": 29,
+    "lang": "HTML",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
     "name": "ghost-themes",
     "description": null,
     "date": "2026-06-24",
