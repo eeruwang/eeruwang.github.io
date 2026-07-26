@@ -147,7 +147,7 @@ window.REPOS = [
     "description": "여러 Fediverse 계정을 한 곳에서 관리하는 대시보드입니다.",
     "date": "2026-02-06",
     "stars": 1,
-    "commits": 265,
+    "commits": 285,
     "lang": "JavaScript",
     "private": false,
     "url": "https://github.com/eeruwang/starship",
