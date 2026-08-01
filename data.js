@@ -1,5 +1,16 @@
 window.REPOS = [
   {
+    "name": "loggia",
+    "description": null,
+    "date": "2026-07-31",
+    "stars": 0,
+    "commits": 52,
+    "lang": "HTML",
+    "private": false,
+    "url": "https://github.com/eeruwang/loggia",
+    "live": null
+  },
+  {
     "name": "Hollo-Cloudflare",
     "description": null,
     "date": "2026-07-20",
@@ -147,7 +158,7 @@ window.REPOS = [
     "description": "여러 Fediverse 계정을 한 곳에서 관리하는 대시보드입니다.",
     "date": "2026-02-06",
     "stars": 1,
-    "commits": 287,
+    "commits": 289,
     "lang": "JavaScript",
     "private": false,
     "url": "https://github.com/eeruwang/starship",
