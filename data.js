@@ -1,11 +1,22 @@
 window.REPOS = [
   {
+    "name": "loggia-worker-email",
+    "description": null,
+    "date": "2026-08-02",
+    "stars": 0,
+    "commits": 16,
+    "lang": "TypeScript",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
     "name": "loggia",
     "description": null,
     "date": "2026-07-31",
     "stars": 0,
-    "commits": 52,
-    "lang": "HTML",
+    "commits": 93,
+    "lang": "TypeScript",
     "private": false,
     "url": "https://github.com/eeruwang/loggia",
     "live": null
