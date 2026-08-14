@@ -1,5 +1,16 @@
 window.REPOS = [
   {
+    "name": "ebook_cloud",
+    "description": null,
+    "date": "2026-08-13",
+    "stars": 0,
+    "commits": 9,
+    "lang": "HTML",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
     "name": "loggia-worker-email",
     "description": null,
     "date": "2026-08-02",
@@ -15,7 +26,7 @@ window.REPOS = [
     "description": null,
     "date": "2026-07-31",
     "stars": 0,
-    "commits": 143,
+    "commits": 152,
     "lang": "TypeScript",
     "private": false,
     "url": "https://github.com/eeruwang/loggia",
