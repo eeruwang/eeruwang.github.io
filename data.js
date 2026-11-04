@@ -1,5 +1,16 @@
 window.REPOS = [
   {
+    "name": "bookclub",
+    "description": null,
+    "date": "2026-11-03",
+    "stars": 0,
+    "commits": 12,
+    "lang": "JavaScript",
+    "private": true,
+    "url": null,
+    "live": null
+  },
+  {
     "name": "short-essay",
     "description": null,
     "date": "2026-10-08",
